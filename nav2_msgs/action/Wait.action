@@ -1,0 +1,8 @@
+#goal definition
+duration time
+---
+#result definition
+duration total_elapsed_time
+---
+#feedback
+duration time_left

@@ -1,0 +1,27 @@
+@PACKAGE_INIT@
+
+#set(_roscomp_supported_components roscomp)
+
+#include("${CMAKE_CURRENT_LIST_DIR}/roscompTargets.cmake")
+#set_and_check(ROSCOMP_INCLUDE_DIR "@PACKAGE_INCLUDE_INSTALL_DIR@")
+set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_LIST_DIR} ${CMAKE_MODULE_PATH})
+
+#check_required_components(roscomp)
+if(ROS_VERSION EQUAL 2)
+    find_package(rclcpp REQUIRED)
+    find_package(rclcpp_components REQUIRED)
+endif()
+
+find_package(tf2 REQUIRED)
+find_package(tf2_ros REQUIRED)
+
+find_package(ackermann_msgs QUIET)
+find_package(actuation_msgs QUIET)
+find_package(adx_msgs QUIET)
+find_package(nav_msgs QUIET)
+find_package(sensor_msgs QUIET)
+find_package(std_msgs QUIET)
+find_package(std_srvs QUIET)
+find_package(visualization_msgs QUIET)
+
+include("${CMAKE_CURRENT_LIST_DIR}/roscompTargets.cmake")
